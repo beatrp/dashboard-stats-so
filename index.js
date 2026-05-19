@@ -127,7 +127,7 @@ app.get("/", (req, res) => {
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="5">
-<title>SO Dashboard 3.0</title>
+<title>SO Dashboard</title>
 
 <style>
 body{
@@ -476,7 +476,7 @@ ${files.map(f => `
 </div>
 
 <div class="footer">
-SO Dashboard 2.0 • Sistemas Operacionais + Cloud Computing
+SO Dashboard • Sistemas Operacionais + Cloud Computing
 </div>
 
 </body>
