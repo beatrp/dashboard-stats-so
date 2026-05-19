@@ -448,7 +448,7 @@ tr:hover{
 
 <body>
 
-<h1>🖥️ SO Dashboard 3.0</h1>
+<h1>🖥️ SO Dashboard</h1>
 <div class="subtitle">
 Atualizado em ${new Date().toLocaleString()}
 </div>
