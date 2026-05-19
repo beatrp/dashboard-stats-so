@@ -130,166 +130,319 @@ app.get("/", (req, res) => {
 <title>SO Dashboard</title>
 
 <style>
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   font-family:Arial, sans-serif;
-
-  /* DARK RED BACKGROUND */
   background:
-    radial-gradient(circle at top, #3b000a 0%, #140005 45%, #090909 100%);
-
+    radial-gradient(circle at top, #3b000a 0%, #140005 45%, #080808 100%);
   color:#f3f3f3;
+
   margin:0;
-  padding:20px;
+  padding:32px;
+
+  min-height:100vh;
 }
+
+/* =========================
+   TITULOS
+========================= */
 
 h1{
   text-align:center;
-  margin-bottom:5px;
+  margin:0 0 10px;
+
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:1px;
+
   color:#ff4d6d;
-  text-shadow:0 0 12px rgba(255,0,80,.35);
+
+  text-shadow:
+    0 0 12px rgba(255,0,80,.35),
+    0 0 25px rgba(255,0,60,.18);
 }
 
 .subtitle{
   text-align:center;
-  color:#c5b3b8;
-  margin-bottom:20px;
+  color:#c9b6bb;
+
+  margin-bottom:35px;
+  font-size:15px;
 }
+
+h2{
+  margin:0 0 22px;
+  font-size:22px;
+  color:#ff5c7c;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding-bottom:12px;
+}
+
+/* =========================
+   GRID
+========================= */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+  gap:24px;
 }
 
 .top-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-  margin-bottom:20px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+
+  margin-bottom:30px;
 }
 
+/* =========================
+   CARDS
+========================= */
+
 .card{
-  background:rgba(20, 20, 20, 0.95);
-  border:1px solid rgba(255, 0, 80, 0.18);
-  border-radius:16px;
-  padding:18px;
+  background:rgba(20,20,20,.92);
 
-  /* glow */
+  border:1px solid rgba(255,0,80,.15);
+  border-radius:22px;
+
+  padding:24px;
+
   box-shadow:
-    0 0 18px rgba(255,0,60,.08),
-    0 4px 16px rgba(0,0,0,.45);
+    0 0 20px rgba(255,0,70,.08),
+    0 8px 24px rgba(0,0,0,.45);
 
-  backdrop-filter:blur(4px);
+  backdrop-filter:blur(5px);
+
+  transition:.25s ease;
 }
 
 .card:hover{
-  transform:translateY(-2px);
-  transition:.25s ease;
+  transform:translateY(-3px);
+
   box-shadow:
-    0 0 24px rgba(255,0,70,.18),
-    0 6px 20px rgba(0,0,0,.55);
+    0 0 28px rgba(255,0,70,.16),
+    0 12px 30px rgba(0,0,0,.55);
 }
+
+/* =========================
+   KPI
+========================= */
 
 .kpi{
   text-align:center;
+  padding:28px 20px;
 }
 
 .kpi h3{
   margin:0;
   font-size:14px;
-  color:#ff8ca1;
+  letter-spacing:1px;
+  text-transform:uppercase;
+
+  color:#ff96aa;
 }
 
 .kpi .value{
-  font-size:28px;
-  font-weight:bold;
-  margin-top:8px;
+  font-size:34px;
+  font-weight:800;
+
+  margin-top:14px;
+  color:#fff;
+}
+
+/* =========================
+   TEXTOS
+========================= */
+
+p{
+  margin:0 0 14px;
+  line-height:1.7;
+  color:#dddddd;
+}
+
+strong,
+b{
   color:#ffffff;
 }
 
+.small{
+  margin-top:16px;
+  color:#a79ba0;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* =========================
+   BARRAS
+========================= */
+
 .bar{
-  background:#2a2a2a;
-  height:26px;
-  border-radius:8px;
+  background:#262626;
+
+  height:28px;
+  border-radius:999px;
+
   overflow:hidden;
-  margin-top:8px;
+
+  margin-top:14px;
+  margin-bottom:20px;
+
+  border:1px solid rgba(255,255,255,.05);
 }
 
 .fill{
-  background:linear-gradient(90deg, #7a0018, #ff174f);
+  background:
+    linear-gradient(
+      90deg,
+      #6b0015,
+      #b3002d,
+      #ff1f57
+    );
+
   height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
   color:#fff;
-  text-align:center;
-  line-height:26px;
   font-size:13px;
   font-weight:bold;
 
-  box-shadow:0 0 12px rgba(255,0,80,.35);
+  box-shadow:0 0 14px rgba(255,0,80,.35);
 }
 
-.small{
-  color:#b3a4a9;
-  font-size:13px;
+/* =========================
+   CPU CORE
+========================= */
+
+.core{
+  margin-bottom:24px;
 }
+
+.core:last-child{
+  margin-bottom:0;
+}
+
+/* =========================
+   TABELAS
+========================= */
 
 table{
   width:100%;
   border-collapse:collapse;
-  font-size:13px;
+  margin-top:10px;
 }
 
 th{
-  color:#ff6b88;
-}
+  color:#ff7b98;
 
-th, td{
-  padding:6px;
-  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+  font-weight:700;
+
+  padding:14px 10px;
+
+  border-bottom:1px solid rgba(255,255,255,.12);
+
   text-align:left;
 }
 
 td{
   color:#e5e5e5;
+
+  padding:14px 10px;
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  font-size:14px;
 }
+
+tr:hover{
+  background:rgba(255,255,255,.03);
+}
+
+/* =========================
+   BADGE
+========================= */
 
 .badge{
-  display:inline-block;
-  padding:8px 16px;
-  border-radius:999px;
-  color:#fff;
-  font-weight:bold;
-  font-size:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-  background:linear-gradient(135deg, #650012, #c4002f);
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  color:#fff;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:1px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #650012,
+      #c4002f
+    );
+
   border:1px solid #ff4068;
 
-  box-shadow:0 0 14px rgba(255,0,60,.35);
+  box-shadow:
+    0 0 14px rgba(255,0,60,.35);
 }
 
-.core{
-  margin-bottom:12px;
-}
-
-p{
-  margin-bottom:10px;
-  color:#d1d1d1;
-}
-
-strong, b{
-  color:#ffffff;
-}
-
-h2{
-  color:#ff4d6d;
-  margin-top:0;
-}
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
   text-align:center;
-  color:#9d8a8f;
-  margin-top:20px;
-  font-size:12px;
+
+  color:#96898e;
+
+  margin-top:40px;
+  padding-top:18px;
+
+  font-size:13px;
+
+  border-top:1px solid rgba(255,255,255,.06);
 }
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:768px){
+
+  body{
+    padding:18px;
+  }
+
+  h1{
+    font-size:32px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .top-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .card{
+    padding:20px;
+  }
+
+}
+
 </style>
 </head>
 
