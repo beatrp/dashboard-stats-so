@@ -1,5 +1,4 @@
 
-```javascript
 const express = require("express");
 const os = require("os");
 const fs = require("fs");
