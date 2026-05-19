@@ -132,7 +132,12 @@ app.get("/", (req, res) => {
 <style>
 body{
   font-family:Arial, sans-serif;
-  background:#f3f4f6;
+
+  /* DARK RED BACKGROUND */
+  background:
+    radial-gradient(circle at top, #3b000a 0%, #140005 45%, #090909 100%);
+
+  color:#f3f3f3;
   margin:0;
   padding:20px;
 }
@@ -140,11 +145,13 @@ body{
 h1{
   text-align:center;
   margin-bottom:5px;
+  color:#ff4d6d;
+  text-shadow:0 0 12px rgba(255,0,80,.35);
 }
 
 .subtitle{
   text-align:center;
-  color:#666;
+  color:#c5b3b8;
   margin-bottom:20px;
 }
 
@@ -162,10 +169,25 @@ h1{
 }
 
 .card{
-  background:#fff;
-  border-radius:14px;
+  background:rgba(20, 20, 20, 0.95);
+  border:1px solid rgba(255, 0, 80, 0.18);
+  border-radius:16px;
   padding:18px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+  /* glow */
+  box-shadow:
+    0 0 18px rgba(255,0,60,.08),
+    0 4px 16px rgba(0,0,0,.45);
+
+  backdrop-filter:blur(4px);
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  transition:.25s ease;
+  box-shadow:
+    0 0 24px rgba(255,0,70,.18),
+    0 6px 20px rgba(0,0,0,.55);
 }
 
 .kpi{
@@ -175,17 +197,18 @@ h1{
 .kpi h3{
   margin:0;
   font-size:14px;
-  color:#666;
+  color:#ff8ca1;
 }
 
 .kpi .value{
   font-size:28px;
   font-weight:bold;
   margin-top:8px;
+  color:#ffffff;
 }
 
 .bar{
-  background:#e5e7eb;
+  background:#2a2a2a;
   height:26px;
   border-radius:8px;
   overflow:hidden;
@@ -193,16 +216,19 @@ h1{
 }
 
 .fill{
-  background:#2563eb;
+  background:linear-gradient(90deg, #7a0018, #ff174f);
   height:100%;
   color:#fff;
   text-align:center;
   line-height:26px;
   font-size:13px;
+  font-weight:bold;
+
+  box-shadow:0 0 12px rgba(255,0,80,.35);
 }
 
 .small{
-  color:#666;
+  color:#b3a4a9;
   font-size:13px;
 }
 
@@ -212,28 +238,55 @@ table{
   font-size:13px;
 }
 
+th{
+  color:#ff6b88;
+}
+
 th, td{
   padding:6px;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid rgba(255,255,255,.08);
   text-align:left;
+}
+
+td{
+  color:#e5e5e5;
 }
 
 .badge{
   display:inline-block;
-  padding:6px 10px;
+  padding:8px 16px;
   border-radius:999px;
   color:#fff;
   font-weight:bold;
   font-size:12px;
+
+  background:linear-gradient(135deg, #650012, #c4002f);
+  border:1px solid #ff4068;
+
+  box-shadow:0 0 14px rgba(255,0,60,.35);
 }
 
 .core{
-  margin-bottom:8px;
+  margin-bottom:12px;
+}
+
+p{
+  margin-bottom:10px;
+  color:#d1d1d1;
+}
+
+strong, b{
+  color:#ffffff;
+}
+
+h2{
+  color:#ff4d6d;
+  margin-top:0;
 }
 
 .footer{
   text-align:center;
-  color:#777;
+  color:#9d8a8f;
   margin-top:20px;
   font-size:12px;
 }
